@@ -1,102 +1,258 @@
-import Image from "next/image";
+"use client";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Heart, Mail, Globe, Sparkles, ChevronDown } from 'lucide-react';
+import { Button } from '../components/ui/button';
+import CustomCross from '../components/icons/CustomCross';
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start' 
+    });
+  };
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-amber-50">
+      
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.1 }}
+            transition={{ duration: 3 }}
+            className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-yellow-200 to-transparent rounded-full blur-3xl"
+          />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.1 }}
+            transition={{ duration: 3, delay: 1 }}
+            className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-tl from-blue-200 to-transparent rounded-full blur-3xl"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+
+        <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="mb-6"
+          >
+            <CustomCross className="w-12 h-12 text-amber-400 mx-auto mb-4" />
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.8 }}
+            className="text-8xl md:text-9xl lg:text-[12rem] font-light tracking-wide text-slate-800 leading-none"
+          >
+            JESUS
+          </motion.h1>
+          
+          <motion.div
+            initial={{ opacity: 0, width: 0 }}
+            animate={{ opacity: 1, width: '100%' }}
+            transition={{ duration: 1, delay: 1.5 }}
+            className="h-1 bg-gradient-to-r from-transparent via-slate-800 to-transparent mx-auto mb-4"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 2 }}
+            className="text-6xl md:text-7xl lg:text-8xl font-light text-rose-500 mb-8"
+          >
+            wins.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 2.5 }}
+            className="space-y-2 text-slate-600"
+          >
+            <p className="text-lg">www.jesus-wins.com</p>
+            <p className="text-lg">contact@jesus-wins.com</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 3 }}
+            className="mt-16"
+          >
+            <button 
+              onClick={() => scrollToSection('mission')}
+              className="animate-bounce text-slate-500 hover:text-slate-700 transition-colors"
+            >
+              <ChevronDown className="w-8 h-8" />
+            </button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Mission Section */}
+      <section id="mission" className="py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Heart className="w-16 h-16 text-rose-400 mx-auto mb-8" />
+            <h2 className="text-4xl md:text-5xl font-light text-slate-800 mb-8 leading-relaxed">
+              A Mission of <span className="text-amber-500">Love</span> & <span className="text-blue-500">Faith</span>
+            </h2>
+            <div className="space-y-6 text-xl text-slate-600 leading-relaxed">
+              <p>
+                This campaign, Jesus wins, is apolitical and non-opinionated. We aim to 
+                achieve funding that will eventually supply signage to Australia and 
+                prayerfully to the rest of the world.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Vision Section */}
+      <section className="py-24 px-4 bg-gradient-to-r from-blue-50 to-amber-50">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <Globe className="w-16 h-16 text-blue-400 mx-auto mb-8" />
+            <h2 className="text-4xl md:text-5xl font-light text-slate-800 mb-8">
+              Our <span className="text-blue-500">Vision</span>
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-xl border border-white/20"
+          >
+            <div className="text-center space-y-8">
+              <p className="text-xl text-slate-600 leading-relaxed max-w-4xl mx-auto">
+                Future projects will include advertisements in newspapers/magazines, 
+                hats/t-shirts, google advertising/social media advertising, signage on 
+                buses and billboards. Wherever the holy spirit leads.
+              </p>
+              
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-amber-500 bg-clip-text text-transparent">
+                <Mail className="w-6 h-6 text-blue-500" />
+                <p className="text-lg font-medium">
+                  Please send an email to contact@jesus-wins.com if you can help in these industries.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Donation Section */}
+      <section className="py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-gradient-to-br from-amber-50 to-rose-50 rounded-3xl p-16 shadow-2xl border border-amber-100">
+              <Sparkles className="w-16 h-16 text-amber-400 mx-auto mb-8 animate-pulse" />
+              <h2 className="text-4xl md:text-5xl font-light text-slate-800 mb-8">
+                Join Our <span className="text-amber-500">Mission</span>
+              </h2>
+              
+              <p className="text-xl text-slate-600 mb-12 leading-relaxed">
+                Please give via GiveSendGo if the holy spirit prompts you to give.
+              </p>
+
+              <div className="space-y-8">
+                <div className="inline-flex items-center gap-4 text-2xl font-light text-slate-800">
+                  <span className="text-slate-800">Jesus</span>
+                  <span className="text-rose-500 font-medium">wins.</span>
+                  <span className="text-slate-500">Amen</span>
+                </div>
+
+                {/* GiveSendGo Logo Area */}
+                <div className="py-12">
+                  <div className="bg-white rounded-2xl p-8 shadow-lg inline-block">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-slate-800 mb-2">
+                        Give<span className="text-rose-500">Send</span>Go
+                      </div>
+                      <div className="text-sm text-slate-500 font-medium">
+                        #1 Free Christian Crowdfunding Site
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <a href="https://www.givesendgo.com/jesuswin" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-white text-lg px-12 py-6 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  >
+                    Support This Mission
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-16 px-4 bg-gradient-to-r from-slate-50 to-blue-50">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-2xl mx-auto text-center"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          <Mail className="w-12 h-12 text-blue-400 mx-auto mb-6" />
+          <h3 className="text-3xl font-light text-slate-800 mb-4">Get in Touch</h3>
+          <a
+            href="mailto:contact@jesus-wins.com"
+            className="text-2xl text-blue-600 hover:text-blue-700 transition-colors duration-300 font-bold"
+          >
+            contact@jesus-wins.com
+          </a>
+        </motion.div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-4 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-lg text-slate-600 mb-4">
+              Spreading His love, one sign at a time
+            </p>
+            <div className="flex justify-center items-center gap-2 text-slate-400">
+              <Heart className="w-4 h-4" />
+              <span className="text-sm">Made with love for His glory</span>
+              <Heart className="w-4 h-4" />
+            </div>
+          </motion.div>
+        </div>
       </footer>
     </div>
   );
